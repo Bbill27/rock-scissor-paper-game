@@ -1,0 +1,60 @@
+import random as rd
+
+def start():
+    global player,idx,RESET,RED,GREEN,YELLOW
+
+    my_list = ["rock", "scissor", "paper"]
+    chosen = rd.choice(my_list)
+    idx += 1
+    #rock player
+    if player == "rock" and chosen == "paper":
+        print(f"{RED}player Lose ", "\n"
+              f"Ai choose:{chosen}{RESET}")
+    elif player == "rock" and chosen == "scissor":
+        print(f"{GREEN}player Win ", "\n"
+              f"Ai choose:{chosen}{RESET}")
+    elif player == chosen :
+        print(f"{YELLOW}player Tide ", "\n"
+              f"Ai choose:{chosen}{RESET}")
+
+    #paper player
+    elif player == "paper" and chosen == "scissor":
+        print(f"{RED}player Lose "+ "\n"
+              f"Ai choose:{chosen}{RESET}")
+    elif player == "paper" and chosen == "rock":
+        print(f"{GREEN}player Win "+ "\n"
+              f"Ai choose:{chosen}{RESET}")
+
+    #scissor player
+    elif player == "scissor" and chosen == "rock":
+        print(f"{RED}player Lose "+ "\n"
+              f"Ai choose:{chosen}{RESET}")
+    elif player == "scissor" and chosen == "paper":
+        print(f"{GREEN}player Win " + "\n"
+              f"Ai choose:{chosen}{RESET}")
+
+    #exit player
+    elif player == "exit":
+        print(f"{RED}let's play next time!{RESET}")
+    else:
+        print("error")
+
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+RESET = "\033[0m"
+BLUE   = "\033[94m"
+MAGENTA = "\033[95m"
+
+print(f"{MAGENTA}type rock,scissor,paper:{RESET}")
+idx = 0
+while True:
+    player = input().strip().lower()
+    start()
+    if player == "exit":
+        print(f"{BLUE}|||||||{RESET}  {RED}round End{RESET}  {BLUE}|||||||{RESET}")
+    else:
+        print(f"{BLUE}|||||||{RESET}  {GREEN}round{idx}{RESET}  {BLUE}|||||||{RESET}")
+
+    if player == "exit":
+        break
